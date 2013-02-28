@@ -1,0 +1,41 @@
+<resources>
+
+    <string name="app_name">NetplusBasePackage</string>
+    
+    <string name="dialog_title_error">Błąd</string>
+    <string name="dialog_title_info">Informacja</string>
+    <string name="dialog_message_no_favorites">Brak elementów dodanych do ulubionych</string>
+	<string name="dialog_message_connection_error">Błąd połączenia z serwerem, spróbuj ponownie</string>
+	<string name="dialog_message_no_searchresult">Brak elementów spełniających kryteria wyszukiwania</string>
+	
+	<string name="dialog_OK">OK</string>
+	<string name="dialog_Cancel">Anuluj</string>
+	<string name="dialog_Retry">Spróbuj ponownie</string>
+	<string name="dialog_no_internet_connection">Brak połączenia z internetem, nie można wykonać aktualizacji.</string>
+	
+	<string name="update_question">Czy chcesz dokonać aktualizacji kawałów?</string>
+    	
+	<string name="progress_download_data">Wczytywanie danych</string>
+    <string name="progress_update_data">Aktualizacja danych</string>
+    <string name="progress_save_changes">Zapisywanie zmian</string>
+    <string name="progress_search">Wyszukiwanie</string>
+    
+    <string name="title_fragment_search">Wyszukaj</string>
+    <string name="title_fragment_start">Start</string>
+    <string name="title_fragment_right">Opcje</string>
+    
+    <string name="add_to_favorites">Dodaj do ulubionych</string>
+    <string name="removed_from_favorites">Usuń z ulubionych</string>
+    
+    <string name="menu_search">Wyszukaj</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="menu_share">Wyślij</string>
+    <string name="menu_filter">Sortowanie</string>
+    
+    <string name="preference_title_replace">Polskie znaki</string>
+    <string name="preference_summary_replace">Podmiana polskich znaków przed wysłaniem treści</string>
+   
+    
+   
+
+</resources>

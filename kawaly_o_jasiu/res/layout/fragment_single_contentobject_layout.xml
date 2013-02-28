@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ll_our_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@color/app_top_bar" >
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/cbx_star_enabled" />
+
+            <TextView
+                android:id="@+id/txtv_rating"
+                style="@style/Style_TextWithoutShadow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="7.2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    style="@style/Style_TextWithoutShadow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_added"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/txtv_addTime"
+                    style="@style/Style_TextWithoutShadow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ff0000" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtv_lenght"
+                style="@style/Style_TextWithoutShadow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtv_additional"
+            style="@style/Style_TextWithoutShadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl1"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@+id/rl1"
+            android:text="@string/our_rating"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000" />
+
+        <ImageView
+            android:id="@+id/iv_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/rl1"
+            android:layout_marginRight="38dp"
+            android:paddingRight="30dp"
+            android:src="@drawable/news2"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_favorite"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ll_our_rating"
+        android:layout_margin="10dp" >
+
+        <TextView
+            android:id="@+id/txtv_wish"
+            style="@style/Style_TextWithoutShadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Życzenia bożonarodzeniowe, ciepłe, serdeczne, pełne miłości i radości – czyli teksty idealnie oddające atomsferę towarzyszącą Świętom Bożego Narodzenia, pasujące zarówno do wpisów na kartki świąteczne, jak i do wiadomości SMS"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_favorite"
+        style="@style/Style_TextWithShadow"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="2dp"
+        android:background="@color/btn_blue_selector"
+        android:drawableLeft="@drawable/cbx_star_disabled"
+        android:text="@string/add_to_favorites" />
+
+</RelativeLayout>

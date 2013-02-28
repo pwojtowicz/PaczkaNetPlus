@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/RelativeLayout1"    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background" >
+
+    <android.support.v4.view.ViewPager
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llbottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        tools:context=".ObjectManager" >
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/llbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:weightSum="1" >
+
+        <Button
+            android:id="@+id/btn_previous"
+           android:background="@color/btn_blue_selector"
+           style="@style/Style_TextWithShadow"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_weight="0.3"
+            android:layout_margin="2dp"
+            android:text="&lt;&lt;" />
+
+        <Button
+            android:id="@+id/btn_share"
+            android:background="@color/btn_blue_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="0.4"
+            android:layout_margin="2dp"
+            style="@style/Style_TextWithShadow"
+            android:text="@string/menu_share" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_margin="2dp"            
+            android:layout_weight="0.3"
+            style="@style/Style_TextWithShadow"
+            android:background="@color/btn_blue_selector"
+            android:text=">>" />
+        
+        
+    </LinearLayout>
+    
+    <com.google.ads.AdView android:id="@+id/adView"
+        				 android:layout_alignParentBottom="true"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         ads:adUnitId="a15118eb6e01f3c"
+                         ads:adSize="BANNER"
+                         ads:loadAdOnCreate="true"/>
+    
+
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kawały o Jasiu</string>
+       
+    <string name="our_rating">Nasza ocena</string>
+    <string name="aboutApp">O programie</string>
+    <string name="randomObjects">Losowo</string>  
+    <string name="favorites">Ulubione</string>  
+    <string name="btn_title_news">Najnowsze </string>
+    <string name="btn_title_the_best">Najlepsze </string>
+    <string name="btn_footer_add_wishes">Dodaj kawał</string>
+    <string name="btn_update">Pobierz nowe</string>
+    <string name="text_to_search">Wyszukaj tekst</string>
+    <string name="text_added">Dodano</string> 
+
+</resources>
