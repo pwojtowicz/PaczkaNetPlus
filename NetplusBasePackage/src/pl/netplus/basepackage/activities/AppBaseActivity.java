@@ -1,9 +1,14 @@
 package pl.netplus.basepackage.activities;
 
+import java.util.Calendar;
+
 import pl.netplus.basepackage.database.DataBaseManager;
 import pl.netplus.basepackage.enums.EDialogType;
+import pl.netplus.basepackage.enums.ERepositoryManagerMethods;
+import pl.netplus.basepackage.enums.ERepositoryTypes;
 import pl.netplus.basepackage.exceptions.RepositoryException;
 import pl.netplus.basepackage.interfaces.IReadRepository;
+import pl.netplus.basepackage.managers.ObjectManager;
 import pl.netplus.basepackage.support.DialogHelper;
 import pl.netplus.basepackage.support.NetPlusPackageGlobals;
 import pl.netplus.basepackage.support.StringHelper;
@@ -27,6 +32,7 @@ public abstract class AppBaseActivity extends FragmentActivity implements
 	private boolean pref_replaceChars;
 	private boolean pref_addSignature;
 	private String pref_signature;
+	protected boolean isFirstTime = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,7 @@ public abstract class AppBaseActivity extends FragmentActivity implements
 
 		NetPlusPackageGlobals.getInstance().setHideEmptyCategories(
 				prefs.getBoolean("prop_hide_empty", true));
+
 	}
 
 	@Override
@@ -116,7 +123,13 @@ public abstract class AppBaseActivity extends FragmentActivity implements
 		String pref_next_update_date = prefs.getString("prop_next_update_date",
 				"0");
 
-		return Long.parseLong(pref_next_update_date);
+		long value = 0;
+		try {
+			value = Long.parseLong(pref_next_update_date);
+		} catch (Exception e) {
+			value = 0;
+		}
+		return value;
 	}
 
 	public String getLastAppVersion() {
@@ -161,5 +174,65 @@ public abstract class AppBaseActivity extends FragmentActivity implements
 		}
 		return false;
 	}
+
+	public boolean checkShouldByUpdateByAppVersion() {
+		boolean result = false;
+
+		Double appCurrent = 0.0;
+		Double appLast = 0.0;
+		try {
+			String curr_app_ver = this.getPackageManager().getPackageInfo(
+					this.getPackageName(), 0).versionName;
+			String last_app_ver = getLastAppVersion();
+
+			appCurrent = Double.parseDouble(curr_app_ver);
+			appLast = Double.parseDouble(last_app_ver);
+			if (appLast == 0.0)
+				isFirstTime = false;
+			result = appLast < appCurrent;
+
+		} catch (Exception e) {
+
+		}
+
+		return result;
+	}
+
+	public boolean updateOldVersion = false;
+
+	public void onMainActivityStart() {
+		updateOldVersion = checkShouldByUpdateByAppVersion();
+
+		long nextUpdate = getNextUpdateDate();
+		long actualTime = Calendar.getInstance().getTimeInMillis();
+
+		if (nextUpdate < actualTime || updateOldVersion) {
+			update(nextUpdate == 0 || updateOldVersion ? false : true);
+		}
+		if (isFirstTime) {
+			ObjectManager manager = new ObjectManager();
+			manager.readObjectsWithoutSendItem(this, ERepositoryTypes.Favorite,
+					ERepositoryManagerMethods.ReadAll, null);
+		}
+	}
+
+	public void update(boolean showQuestion) {
+		if (showQuestion) {
+			OnClickListener positiveListener = new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					getUpdate();
+				}
+			};
+
+			DialogHelper.createQuestionDialog(this,
+					getString(R.string.update_question), positiveListener)
+					.show();
+		} else
+			getUpdate();
+	}
+
+	public abstract void getUpdate();
 
 }

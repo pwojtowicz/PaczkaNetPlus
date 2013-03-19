@@ -70,6 +70,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/img_icon_big" />
+        android:src="@drawable/kawaly_o_jasiu_big" />
 
 </RelativeLayout>

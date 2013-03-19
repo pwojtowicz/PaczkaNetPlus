@@ -27,4 +27,10 @@ public abstract class ActivityBase extends AppBaseActivity {
 		}
 		return true;
 	}
+
+	@Override
+	public void getUpdate() {
+		// TODO Auto-generated method stub
+
+	}
 }

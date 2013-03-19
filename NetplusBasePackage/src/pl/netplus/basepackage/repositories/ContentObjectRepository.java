@@ -221,6 +221,11 @@ public class ContentObjectRepository implements IBaseRepository<ContentObject> {
 	private boolean insertOrUpdate(ContentObject item, boolean shouldUpdate,
 			DataBaseManager dbManager) {
 
+		if (item != null) {
+			item.setText(item.getText().replace("&lt;", "<")
+					.replace("&gt;", ">").replace("&nbsp;", " "));
+		}
+
 		item.setText(item.getText().replace("<br>", "\n"));
 		if (!shouldUpdate) {
 			SQLiteStatement insertStmt = dbManager.getDataBase()

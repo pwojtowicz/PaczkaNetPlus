@@ -6,8 +6,6 @@ import java.util.Date;
 
 import pl.netplus.basepackage.adapters.StartActivityFragmentAdapter;
 import pl.netplus.basepackage.asynctasks.ObjectsAsycnTask.AsyncTaskResult;
-import pl.netplus.basepackage.enums.ERepositoryManagerMethods;
-import pl.netplus.basepackage.enums.ERepositoryTypes;
 import pl.netplus.basepackage.interfaces.IReadRepository;
 import pl.netplus.basepackage.managers.ObjectManager;
 import pl.netplus.basepackage.support.DialogHelper;
@@ -15,8 +13,6 @@ import pl.netplus.fragments.RightFragment;
 import pl.netplus.fragments.SearchFragment;
 import pl.netplus.fragments.StartFragment;
 import pl.netplus.kawaly_o_jasiu.R;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,65 +37,23 @@ public class MainActivity extends ActivityBase implements IReadRepository {
 	}
 
 	public String getContentToDeleteAddress() {
-		return contentToDeleteAddress;
+		return String.format("%s%s", contentToDeleteAddress, categoryId);
 	}
 
 	ViewPager mViewPager;
 	private StartActivityFragmentAdapter mPageAdapter;
 	private ArrayList<Fragment> pages;
 
-	private boolean isFirstTime = true;
-	private boolean updateOldVersion = false;
-
 	@Override
 	public void onStart() {
 		super.onStart();
 
-		Double appCurrent = 0.0;
-		Double appLast = 0.0;
-		try {
-			String curr_app_ver = this.getPackageManager().getPackageInfo(
-					this.getPackageName(), 0).versionName;
-			String last_app_ver = getLastAppVersion();
+		super.onMainActivityStart();
 
-			appCurrent = Double.parseDouble(curr_app_ver);
-			appLast = Double.parseDouble(last_app_ver);
-			updateOldVersion = appLast < appCurrent;
-
-		} catch (Exception e) {
-
-		}
-
-		long nextUpdate = getNextUpdateDate();
-		long actualTime = Calendar.getInstance().getTimeInMillis();
-
-		if (nextUpdate < actualTime || updateOldVersion) {
-			update(nextUpdate == 0 || updateOldVersion ? false : true);
-		} else {
-			ObjectManager manager = new ObjectManager();
-			manager.readObjectsWithoutSendItem(this, ERepositoryTypes.Favorite,
-					ERepositoryManagerMethods.ReadAll, null);
-		}
 	}
 
-	public void update(boolean showQuestion) {
-		if (showQuestion) {
-			OnClickListener positiveListener = new OnClickListener() {
-
-				@Override
-				public void onClick(DialogInterface arg0, int arg1) {
-					getUpdate();
-				}
-			};
-
-			DialogHelper.createQuestionDialog(this,
-					getString(R.string.update_question), positiveListener)
-					.show();
-		} else
-			getUpdate();
-	}
-
-	private void getUpdate() {
+	@Override
+	public void getUpdate() {
 		if (super.checkIsOnline()) {
 			Bundle b = new Bundle();
 

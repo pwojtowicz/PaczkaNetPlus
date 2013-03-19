@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 
-import android.util.Log;
-
 public class HTTPRequestProvider {
 
 	/**
@@ -31,7 +29,6 @@ public class HTTPRequestProvider {
 	private static HTTPRequestBundle getRequest(String address,
 			IHttpRequestToAsyncTaskCommunication listener) {
 
-		Log.i("WishUrlAddress", address);
 		HttpURLConnection connection = null;
 		String response = null;
 		byte[] rawResponse = null;
@@ -53,8 +50,8 @@ public class HTTPRequestProvider {
 			ByteArrayOutputStream byteArray = readInpdutStream(in, fileSize,
 					listener);
 
-			System.out.println("Content Size: " + String.valueOf(fileSize)
-					+ " byteArray Size: " + String.valueOf(byteArray.size()));
+			// System.out.println("Content Size: " + String.valueOf(fileSize)
+			// + " byteArray Size: " + String.valueOf(byteArray.size()));
 
 			try {
 				response = byteArray.toString();// ("ISO-8859-2");

@@ -57,7 +57,7 @@ public class RightFragment extends BaseFragment<Object> implements
 
 		btn_webpage.setOnClickListener(this);
 		btn_add_wish.setOnClickListener(this);
-		btn_facebook.setOnClickListener(this);
+		btn_facebook.setOnClickListener(this);btn_facebook.setVisibility(Button.GONE);
 
 	}
 

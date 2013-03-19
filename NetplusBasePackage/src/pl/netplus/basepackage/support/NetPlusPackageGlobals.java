@@ -98,8 +98,16 @@ public class NetPlusPackageGlobals {
 					Collections.sort(items, new Comparator<ContentObject>() {
 						@Override
 						public int compare(ContentObject c1, ContentObject c2) {
-							return (c1.getRating() > c2.getRating() ? -1 : (c1
-									.getRating() == c2.getRating() ? 0 : 1));
+							try {
+								if (c1.getRating() < c2.getRating())
+									return 1;
+								else if (c1.getRating() > c2.getRating())
+									return -1;
+								else
+									return 0;
+							} catch (Exception e) {
+								return 0;
+							}
 
 						}
 					});
@@ -134,6 +142,8 @@ public class NetPlusPackageGlobals {
 	}
 
 	public void addToFavorites(int objectId) {
+		if (this.favorites == null)
+			this.favorites = new ArrayList<Integer>();
 		if (this.favorites != null)
 			this.favorites.add(objectId);
 

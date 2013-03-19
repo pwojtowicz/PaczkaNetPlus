@@ -34,13 +34,13 @@ public final class R {
         public static final int img_download=0x7f020009;
         public static final int img_facebook=0x7f02000a;
         public static final int img_favorite=0x7f02000b;
-        public static final int img_icon=0x7f02000c;
-        public static final int img_icon_big=0x7f02000d;
-        public static final int img_new=0x7f02000e;
-        public static final int img_random=0x7f02000f;
-        public static final int img_search=0x7f020010;
-        public static final int img_site=0x7f020011;
-        public static final int img_thebest=0x7f020012;
+        public static final int img_new=0x7f02000c;
+        public static final int img_random=0x7f02000d;
+        public static final int img_search=0x7f02000e;
+        public static final int img_site=0x7f02000f;
+        public static final int img_thebest=0x7f020010;
+        public static final int kawaly_o_jasiu=0x7f020011;
+        public static final int kawaly_o_jasiu_big=0x7f020012;
         public static final int news2=0x7f020013;
         public static final int search_background=0x7f020014;
     }

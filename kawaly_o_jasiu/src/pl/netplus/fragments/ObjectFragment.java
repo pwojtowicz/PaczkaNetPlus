@@ -114,7 +114,7 @@ public class ObjectFragment extends BaseFragment<ContentObject> implements
 				iv_new.setVisibility(ImageView.GONE);
 			}
 
-			tv_addDate.setText(StringHelper.daysCountToString(daysBetween + 1));
+			tv_addDate.setText(StringHelper.daysCountToString(daysBetween));
 
 			tv_wish.setText(contentObject.getText());
 

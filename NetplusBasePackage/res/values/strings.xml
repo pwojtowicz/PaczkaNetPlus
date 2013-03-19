@@ -13,7 +13,7 @@
 	<string name="dialog_Retry">Spróbuj ponownie</string>
 	<string name="dialog_no_internet_connection">Brak połączenia z internetem, nie można wykonać aktualizacji.</string>
 	
-	<string name="update_question">Czy chcesz dokonać aktualizacji kawałów?</string>
+	<string name="update_question">Czy chcesz dokonać aktualizacji danych?</string>
     	
 	<string name="progress_download_data">Wczytywanie danych</string>
     <string name="progress_update_data">Aktualizacja danych</string>
